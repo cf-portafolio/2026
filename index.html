@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <style>
         :root {
             --azul-comfenalco: #00529b;
@@ -1038,24 +1038,24 @@
         <form id="form-solicitud" class="p-8 space-y-4">
             <div>
                 <label class="text-[10px] font-black text-gray-400 uppercase ml-2">Nombre de la Empresa</label>
-                <input type="text" name="empresa" required class="w-full bg-gray-50 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-[#00529b] transition-all" placeholder="Ej: Microsoft">
+                <input type="text" name="empresa" required class="w-full bg-gray-100 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-[#00529b] transition-all" placeholder="Ej: Microsoft">
             </div>
             <div>
                 <label class="text-[10px] font-black text-gray-400 uppercase ml-2">Nombre de la Persona</label> 
                 <input type="text" name="nombre" required 
-                class="w-full bg-gray-50 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-[#00529b] transition-all" 
+                class="w-full bg-gray-100 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-[#00529b] transition-all" 
                 placeholder="Ej: Juan Pérez">
             </div>
 <div class="grid grid-cols-2 gap-4">
             <div>
                 <label class="text-[10px] font-black text-gray-400 uppercase ml-2">Número Celular</label> 
                 <input type="tel" name="celular" required pattern="[0-9]{10}"
-                class="w-full bg-gray-50 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-[#00529b] transition-all" 
+                class="w-full bg-gray-100 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-[#00529b] transition-all" 
                 placeholder="Ej: 3123456789">
             </div>
             <div>
                 <label class="text-[10px] font-black text-gray-400 uppercase ml-2">Correo Electrónico</label>
-                <input type="email" name="email" required class="w-full bg-gray-50 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-[#00529b] transition-all" placeholder="talento@empresa.com">
+                <input type="email" name="email" required class="w-full bg-gray-100 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-[#00529b] transition-all" placeholder="talento@empresa.com">
             </div>
 </div>
             <div>
@@ -1126,10 +1126,17 @@
                     </select>
             </div>
 
-            <p style="margin-top: 190px;" class="text-xs text-gray-400 text-center mt-6">
+            <div>
+                <label class="text-[10px] font-black text-gray-400 uppercase ml-2">Comentarios</label>
+                <textarea name="comentarios" rows="5"
+                class="w-full bg-gray-100 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-[#00529b] transition-all"
+                placeholder="Escribe aquí algún comentario adicional..."></textarea>
+            </div>
+
+            <p  class="text-xs text-gray-400 text-center mt-6">
                 Nuestro equipo te contactará en breve para brindarte más información
             </p>
-            <button type="submit" id="btn-enviar" class="w-full bg-[#e30613] text-white font-black uppercase tracking-[0.2em] py-4 rounded-2xl shadow-lg hover:shadow-red-500/30 transition-all mt-4">
+            <button type="submit"  id="btn-enviar" class="w-full bg-[#e30613] text-white font-black uppercase tracking-[0.2em] py-4 rounded-2xl shadow-lg hover:shadow-red-500/30 transition-all mt-4">
                 Enviar Solicitud
             </button>
         </form>
@@ -1332,7 +1339,8 @@ document.getElementById('form-solicitud').addEventListener('submit', function(e)
         nombre: formData.get('nombre'), // 👈 nuevo
         curso: cursosSeleccionados.join(', '),
         email: formData.get('email'),
-        celular: formData.get('celular') // 👈 nuevo
+        celular: formData.get('celular'), // 👈 nuevo
+        comentarios: formData.get('comentarios') // 👈 nuevo
     };
 
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxEp2ro62cHC3I6NQrRZwbI966wOnpcrLPY2Mr9ZxQE-3G4m8h1O3GJ0OvUyKtAluVt8g/exec';
