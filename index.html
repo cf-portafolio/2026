@@ -1046,13 +1046,18 @@
                 class="w-full bg-gray-50 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-[#00529b] transition-all" 
                 placeholder="Ej: Juan Pérez">
             </div>
-
+<div class="grid grid-cols-2 gap-4">
             <div>
                 <label class="text-[10px] font-black text-gray-400 uppercase ml-2">Número Celular</label> 
                 <input type="tel" name="celular" required pattern="[0-9]{10}"
                 class="w-full bg-gray-50 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-[#00529b] transition-all" 
                 placeholder="Ej: 3123456789">
             </div>
+            <div>
+                <label class="text-[10px] font-black text-gray-400 uppercase ml-2">Correo Electrónico</label>
+                <input type="email" name="email" required class="w-full bg-gray-50 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-[#00529b] transition-all" placeholder="talento@empresa.com">
+            </div>
+</div>
             <div>
                 <label class="text-[10px] font-black text-gray-400 uppercase ml-2">Formación de Interés</label>
                     <select id="cursos" name="curso[]" multiple class="w-full bg-gray-50 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-[#00529b] transition-all">
@@ -1120,11 +1125,8 @@
 
                     </select>
             </div>
-            <div>
-                <label class="text-[10px] font-black text-gray-400 uppercase ml-2">Correo Electrónico</label>
-                <input type="email" name="email" required class="w-full bg-gray-50 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-[#00529b] transition-all" placeholder="talento@empresa.com">
-            </div>
-            <p style="margin-top: 130px;" class="text-xs text-gray-400 text-center mt-6">
+
+            <p style="margin-top: 190px;" class="text-xs text-gray-400 text-center mt-6">
                 Nuestro equipo te contactará en breve para brindarte más información
             </p>
             <button type="submit" id="btn-enviar" class="w-full bg-[#e30613] text-white font-black uppercase tracking-[0.2em] py-4 rounded-2xl shadow-lg hover:shadow-red-500/30 transition-all mt-4">
@@ -1300,12 +1302,16 @@ function abrirModalSolicitud() {
     const modal = document.getElementById('modal-solicitud');
     modal.classList.remove('hidden');
     modal.classList.add('flex');
+
+    document.body.style.overflow = 'hidden'; // 🔒 bloquea scroll global
 }
 
 function cerrarModalSolicitud() {
     const modal = document.getElementById('modal-solicitud');
     modal.classList.add('hidden');
     modal.classList.remove('flex');
+
+    document.body.style.overflow = 'auto'; // 🔓 restaura scroll
 }
 
 // Envío del Formulario
